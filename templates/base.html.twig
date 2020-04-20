@@ -3,9 +3,30 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="https://bootswatch.com/4/spacelab/bootstrap.min.css" rel="stylesheet" 
+        crossorigin="anonymous">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
+    <body style="background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80'); background-position:center; background-size:cover">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="/">La bonne Boustifaille</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        {% if not app.user %}
+        <a class="nav-link" href="{{path('security_login')}}">Se connecter</a>
+        {% else %}
+        <a class="nav-link" href="{{path('security_logout')}}">Se déconnecter</a>
+        {% endif %}
+      </div>
+    </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La bonne Boustifaille{% endblock %}
+
+{% block body %}
+<style>
+    h1 {text-align: center};
+</style>
+
+<h1 class="text-muted"> La bonne Boustifaille </h1>
+
+{% for plat in plats %}
+    <div class="container">
+        <div class="row justify-content bg-light rounded">
+            <div class="col p-3">
+                <h2>{{ plat.Nom }}</h2>
+                <img src='{{ plat.image }}' style="width:250px; heigth:250px">
+            </div>
+            <div class="col mt-auto mb-auto">
+                <p class="text-center align-middle">{{ plat.Description}}</p>
+            </div>
+            <div class="col mt-auto mb-auto">
+                <a href="{{ path('reservation') }}"><button class="btn btn-success">Réserver</button></a>
+            </div>
+        </div>
+    </div>
+    </br>
+{% endfor %}
+{% endblock %}

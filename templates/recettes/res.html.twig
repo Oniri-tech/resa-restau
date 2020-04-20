@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>
+        Reservez pour ce soir !
+    </h1>
+
+    {{ form_start(formRes) }}
+    {{ form_widget(formRes) }}
+    <button type="submit">Reservez</button>
+    {{ form_end(formRes) }}
+{% endblock %}
